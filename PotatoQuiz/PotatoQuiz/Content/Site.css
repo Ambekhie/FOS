@@ -21,14 +21,6 @@
      margin: 5px;
 }
 
-div.correct p {
-     color: green;
-}
-
-div.incorrect p {
-     color: red;
-}
-
 .btn {
      border-radius: 0;
 }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(PotatoQuiz.Startup))]
-namespace PotatoQuiz
+[assembly: OwinStartupAttribute(typeof(OrderSystem.Startup))]
+namespace OrderSystem
 {
     public partial class Startup
     {

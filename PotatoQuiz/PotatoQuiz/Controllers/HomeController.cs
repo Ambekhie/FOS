@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PotatoQuiz.Controllers
+namespace OrderSystem.Controllers
 {
     [Authorize]
     public class HomeController : Controller
@@ -25,6 +25,11 @@ namespace PotatoQuiz.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Create()
+        {
             return View();
         }
     }

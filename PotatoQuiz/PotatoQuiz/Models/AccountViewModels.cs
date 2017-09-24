@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace PotatoQuiz.Models
+namespace OrderSystem.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PotatoQuiz.Models;
+using OrderSystem.Models;
 
-namespace PotatoQuiz.Controllers
+namespace OrderSystem.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -92,6 +92,15 @@ namespace PotatoQuiz.Controllers
         }
 
         //
+        // GET: /Account/GetMyID
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<string> GetMyID()
+        {
+            return await Task.FromResult(User.Identity.GetUserId());
+        }
+
+        //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -151,7 +160,7 @@ namespace PotatoQuiz.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -367,7 +376,7 @@ namespace PotatoQuiz.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace PotatoQuiz.Models
+namespace OrderSystem.Models
 {
     public class IndexViewModel
     {

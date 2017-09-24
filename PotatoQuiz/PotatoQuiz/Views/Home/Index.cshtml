@@ -1,22 +1,16 @@
-﻿@{
-    ViewBag.Title = "Play";
-}
-
-<div id="bodyContainer" ng-app="QuizApp">
+﻿<div id="bodyContainer" ng-app="CallApp">
     <section id="content">
         <div class="container">
             <div class="row">
-                <div class="flip-container text-center col-md-12" ng-controller="QuizCtrl" ng-init="nextQuestion()">
-                    <div class="back" ng-class="{flip: answered, correct: correctAnswer, incorrect:!correctAnswer}">
-                        <p class="lead">{{answer()}}</p>
-                        <p>
-                            <button class="btn btn-info btn-lg next option" ng-click="nextQuestion()" ng-disabled="working">Next Question</button>
-                        </p>
-                    </div>
-                    <div class="front" ng-class="{flip: answered}">
+                <div class="flip-container text-center col-md-12" ng-controller="CallCtrl" ng-init="init()">
+                    <div class="front">
                         <p class="lead">{{title}}</p>
+                        <p ng-show="!initState" class="lead">By {{user}}</p>
+                        <p ng-show="!initState" class="lead">Remaining {{minutes()}} Mins</p>
                         <div class="row text-center">
-                            <button class="btn btn-info btn-lg option" ng-repeat="option in options" ng-click="sendAnswer(option)" ng-disabled="working">{{option.title}}</button>
+                            <button class="btn btn-info btn-lg prev" ng-show="!initState" ng-click="prevOrder()">Prev</button>
+                            <button class="btn btn-info btn-lg join" ng-show="!initState" ng-click="join()">Join</button>
+                            <button class="btn btn-info btn-lg next" ng-show="!initState" ng-click="nextOrder()">Next</button>
                         </div>
                     </div>
                 </div>
@@ -27,5 +21,5 @@
 
 @section scripts {
     @Scripts.Render("~/Scripts/angular.js")
-    @Scripts.Render("~/Scripts/app/quiz-controller.js")
+    @Scripts.Render("~/Scripts/app/call-controller.js")
 }

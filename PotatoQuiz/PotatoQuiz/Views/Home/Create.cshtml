@@ -1,0 +1,18 @@
+﻿<h2>""</h2>
+
+<div ng-app="CallApp" ng-controller="CallForm">
+    <form novalidate>
+        Restaurant:<br>
+        <input type="text" ng-model="call.restaurant"><br>
+        Time:<br>
+        <input type="time" ng-model="call.time"
+               placeholder="HH:mm:ss" required />
+        <br><br>
+        <button ng-click="publish()">Publish</button>
+    </form>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/call-controller.js")
+}
